@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b740ecgtbpwms"
+path="res://.godot/imported/Shattered Memories (4K Official Music Video).ogg-492d61be7dbdb4e4df2a9a6e9835f9e8.oggvorbisstr"
+
+[deps]
+
+source_file="res://Resour/Musica/Shattered Memories (4K Official Music Video).ogg"
+dest_files=["res://.godot/imported/Shattered Memories (4K Official Music Video).ogg-492d61be7dbdb4e4df2a9a6e9835f9e8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

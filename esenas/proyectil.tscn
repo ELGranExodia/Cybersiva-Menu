@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c6prfmnpo20lr"]
+
+[ext_resource type="Script" uid="uid://dwsg418a4vw32" path="res://Script/proyectil.gd" id="1_cqfky"]
+[ext_resource type="Texture2D" uid="uid://bgro78jkrsjs6" path="res://Resour/Jugador/armas/proyectil/Red-Orb.png" id="2_rfikj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpyye"]
+radius = 19.104973
+
+[node name="Proyectil" type="Area2D" unique_id=828224959]
+position = Vector2(568, 305)
+script = ExtResource("1_cqfky")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1894975318]
+position = Vector2(2, 7.6293945e-06)
+scale = Vector2(0.2812499, 0.29999992)
+texture = ExtResource("2_rfikj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1753978487]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_jpyye")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

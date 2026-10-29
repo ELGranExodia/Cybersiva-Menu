@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://1iuagsvvqm17"]
+
+[ext_resource type="VideoStream" uid="uid://dwvpo5v6066rl" path="res://Resour/fondo animado.ogv" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://g447dy3gjql5" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://4y2egeruxh1y" path="res://Resour/marco_botones_menu.png" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://coaer3xln3ety" path="res://Resour/BOTONES PRESSER.png" id="3_kk3ma"]
+[ext_resource type="Shader" uid="uid://bmpy85ks3a2yl" path="res://menu.gdshader" id="3_mae5d"]
+[ext_resource type="Texture2D" uid="uid://d4hwbs8fj08h6" path="res://Resour/BOTONES HOVER.png" id="5_nrnbx"]
+[ext_resource type="Texture2D" uid="uid://bkf04vyronc5n" path="res://Resour/TITULONOGB.png" id="6_l48gv"]
+[ext_resource type="AudioStream" uid="uid://b740ecgtbpwms" path="res://Resour/Musica/Shattered Memories (4K Official Music Video).ogg" id="8_kk3ma"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mae5d"]
+shader = ExtResource("3_mae5d")
+shader_parameter/scanline_count = 50.0
+shader_parameter/scanline_speed = 5.0
+shader_parameter/scanline_opacity = 0.4
+
+[sub_resource type="Animation" id="Animation_4hy44"]
+resource_name = "FundidoANegro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ytr4m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l48gv"]
+_data = {
+&"FundidoANegro": SubResource("Animation_4hy44"),
+&"RESET": SubResource("Animation_ytr4m")
+}
+
+[node name="Menu" type="Control" unique_id=980581067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ouk20")
+
+[node name="BackgroundAnimate" type="VideoStreamPlayer" parent="." unique_id=1536998890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_lti8b")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=97543197]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -278.0
+offset_top = -424.99997
+offset_right = 278.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -23
+
+[node name="Play" type="TextureButton" parent="VBoxContainer" unique_id=22536839]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_kk3ma")
+texture_pressed = ExtResource("2_ouk20")
+texture_hover = ExtResource("5_nrnbx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Play" unique_id=1866385569]
+material = SubResource("ShaderMaterial_mae5d")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -26.0
+offset_right = 103.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.77160585, 0.6601285, 1)
+theme_override_font_sizes/font_size = 35
+text = "Play"
+horizontal_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer" unique_id=661752371]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+texture_normal = ExtResource("3_kk3ma")
+texture_pressed = ExtResource("2_ouk20")
+texture_hover = ExtResource("5_nrnbx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Exit" unique_id=826064085]
+material = SubResource("ShaderMaterial_mae5d")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -26.0
+offset_right = 103.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.77160585, 0.6601285, 1)
+theme_override_font_sizes/font_size = 35
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1906581531]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1258069785]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="fadetoblack" type="AnimationPlayer" parent="." unique_id=381925109]
+libraries/ = SubResource("AnimationLibrary_l48gv")
+
+[node name="Version" type="Label" parent="." unique_id=512771741]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -47.0
+offset_right = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 34
+text = "V1.0.0"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=325025267]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -541.5
+offset_right = 541.5
+offset_bottom = 230.0
+grow_horizontal = 2
+texture = ExtResource("6_l48gv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1129723115]
+stream = ExtResource("8_kk3ma")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

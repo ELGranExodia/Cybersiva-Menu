@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://su8pne7c23bx"]
+
+[ext_resource type="Texture2D" uid="uid://1eoiwmkxchvj" path="res://Resour/Jugador/charimgremovebg.png" id="1_oaxl8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_orua6"]
+radius = 18.0
+height = 82.0
+
+[node name="Player" type="CharacterBody2D" unique_id=723544126]
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1120080734]
+position = Vector2(1.0000076, 1.0000038)
+scale = Vector2(0.1927817, 0.20439185)
+texture = ExtResource("1_oaxl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1681100091]
+position = Vector2(3, 2)
+shape = SubResource("CapsuleShape2D_orua6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1373705309]
+position = Vector2(0, 1)
